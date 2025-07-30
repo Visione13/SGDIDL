@@ -1,10 +1,6 @@
 import random
 
 print("Deine Auswahl:")
-print("1: Stein")
-print("2: Schere")
-print("3: Papier")
-
 playerChoice = input()
 
 choices = ["Stein", "Schere", "Papier"]
