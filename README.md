@@ -1,5 +1,5 @@
 # SGDIDL
-Simnple Games Done In Different Languages
+Simple Games Done In Different Languages
 
 -Java
 --Schere Stein Papier
