@@ -2,22 +2,22 @@ import java.util.Arrays;
 
 public class gameBoard {
 
-    char[][] board;
+    char[] board;
 
     public gameBoard(int size){
-        board = new char[size][size];
+        size = size * size;
+        board = new char[size];
 
-        for (char[] chars : board) {
-            Arrays.fill(chars, 'F');
-        }
+        Arrays.fill(board, '.');
     }
 
     public void printBoard(){
-        for(int i = 0; i<board.length; i++){
-            for(int j = 0; j<board[0].length; j++){
-                System.out.print(board[i][j]);
+        for (int i = 0; i < board.length; i++) {
+            if(i%3==0){
+                System.out.println();
             }
-            System.out.println();
+            System.out.print(board[i]);
         }
+        System.out.println();
     }
 }
