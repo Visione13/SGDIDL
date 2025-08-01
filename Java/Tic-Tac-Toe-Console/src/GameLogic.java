@@ -3,6 +3,9 @@ public class GameLogic {
 
     public void gameStart(){
         gb.printBoard();
+    }
+
+    public void select(){
         
     }
 }
