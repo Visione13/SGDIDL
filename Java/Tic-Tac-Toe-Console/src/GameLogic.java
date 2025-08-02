@@ -13,7 +13,7 @@ public class GameLogic {
         boolean playerMove = true;
         boolean clean;
 
-        while(ongoing){
+        while(checkWin()){
             clean = false;
 
             do {
@@ -27,7 +27,9 @@ public class GameLogic {
                     place(choice, playerMove);
                     clean = true;
                 }else{
-                    System.out.println("Bitte Gültige Eingabe");
+                    if(playerMove){
+                        System.out.println("Bitte Gültige Eingabe");
+                    }
                 }
             }
             while(!clean);
@@ -37,6 +39,12 @@ public class GameLogic {
             }else{
                 playerMove = true;
             }
+        }
+
+        if(!playerMove){
+            System.out.println("Du hast gewonnen!");
+        }else{
+            System.out.println("Du hast verloren!");
         }
     }
 
@@ -50,5 +58,25 @@ public class GameLogic {
 
     private boolean checkValidate(int x){
         return gb.board[x-1] == '.';
+    }
+
+    private boolean checkWin(){
+        for(int i = 0; i < 9; i=i+3){
+            if(gb.board[i] == gb.board[i+1] && gb.board[i+1] == gb.board[i+2] && gb.board[i] != '.'){
+                return false;
+            }
+        }
+        for(int i = 0; i < 3; i++){
+            if(gb.board[i] == gb.board[i+3] && gb.board[i+3] == gb.board[i+6] && gb.board[i] != '.'){
+                return false;
+            }
+        }
+        if(gb.board[0] == gb.board[4] && gb.board[4] == gb.board[8] && gb.board[0] != '.'){
+            return false;
+        }
+        if(gb.board[2] == gb.board[4] && gb.board[4] == gb.board[6] && gb.board[2] != '.'){
+            return false;
+        }
+        return true;
     }
 }
